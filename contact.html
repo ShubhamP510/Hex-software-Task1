@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Contact Section */
+        .contact-section {
+            
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title span {
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #007bff;
+            margin: 8px auto 0;
+            border-radius: 10px;
+        }
+
+        /* Contact Card (Glassmorphism) */
+        .contact-card {background-color: rgb(147, 65, 225);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 35px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        /* Intro Text */
+        .intro-text {
+            font-size: 17px;
+            color: #111;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .intro-text strong {
+            font-weight: 600;
+        }
+
+        /* Contact Form Styles */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #007bff;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+/* ------------------------------
+   Mobile-First Responsive Styles
+------------------------------- */
+
+/* Devices up to 768px wide (tablets and below) */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 26px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+
+  .footer {
+    font-size: 13px;
+  }
+}
+
+/* Devices up to 480px wide (phones) */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 15px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .contact-card {
+    padding: 25px 15px;
+  }
+
+  .intro-text {
+    font-size: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .contact-form button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="glass-wrapper">
+        <div class="container">
+            <!-- Left Profile Card -->
+            <div class="left-profile">
+                <img src="./images/image.jpg" alt="Profile" class="profile-pic" />
+                <h2>Shubham Powar</h2>
+                <p class="role">Web Developer</p>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+                <div class="info-card">
+                    <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> Example@Mail.Com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kolhapur</p>
+                    <p><i class="fas fa-birthday-cake"></i> june 14, 2001</p>
+                </div>
+
+                <button class="download-btn">Download CV</button>
+            </div>
+
+            <!-- Right Main Content -->
+            <div class="main-content">
+                <div class="contact-section">
+                    <h2 class="section-title">Contact <span></span></h2>
+
+                    <div class="contact-card">
+                        <p class="intro-text">
+                            I'm Always Open To Discussing Website<br />
+                            <strong>design work or partnerships.</strong>
+                        </p>
+
+                        <form class="contact-form">
+                            <input type="text" name="name" placeholder="Name *" required />
+                            <input type="email" name="email" placeholder="Email *" required />
+                            <textarea name="message" rows="5" placeholder="Message *" required></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+
+                    <footer class="footer">
+                        © 2024 All Rights Reserved by <a href="#">Shubham Powar</a>.
+                    </footer>
+                </div>
+
+            </div>
+
+            <!-- Right Side Menu -->
+            <div class="side-menu">
+                <a href="index.html">About</a>
+                <a href="Resume.html">Resume</a>
+
+                <a href="Blog.html">Blogs</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

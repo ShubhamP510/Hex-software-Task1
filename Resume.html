@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .resume-section {
+            padding: 50px 20px;
+            color: #000000;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title span {
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #007bff;
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        .resume-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            color: #000000;
+        }
+
+        .resume-block h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .resume-card {
+            background: rgba(30, 5, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #007bff;
+            transition: transform 0.3s;
+        }
+
+        .resume-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resume-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #000000;
+        }
+
+        .resume-card p {
+            font-size: 14px;
+            color: #000000;
+
+            margin-top: 5px;
+        }
+
+        .duration {
+            font-size: 13px;
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        /* Color Variants */
+        .resume-card.pink {
+            border-left-color: #ff6f91;
+        }
+
+        .resume-card.blue {
+            border-left-color: #45aaf2;
+        }
+
+        .resume-card.gray {
+            border-left-color: #aaa;
+        }
+
+        .skills-knowledge-section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            color: #333;
+        }
+
+        .skills-knowledge-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skills-box h3,
+        .knowledge-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .skill span {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .fill.red {
+            background: #fff200;
+        }
+
+        .fill.pink {
+            background: #ff6f91;
+        }
+
+        .fill.blue {
+            background: #45aaf2;
+        }
+
+        .fill.purple {
+            background: #a29bfe;
+        }
+
+        .percent {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .knowledge-box .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .knowledge-box .tags span {
+            background: #f1f1f1;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: background 0.3s;
+        }
+
+        .knowledge-box .tags span:hover {
+            background: #02cde3;
+        }
+        /* ---------------------
+   Mobile First Queries
+------------------------ */
+
+/* Small screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .resume-columns,
+  .skills-knowledge-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .resume-section,
+  .skills-knowledge-section {
+    padding: 30px 15px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  .resume-card h4 {
+    font-size: 16px;
+  }
+
+  .resume-card p,
+  .duration {
+    font-size: 13px;
+  }
+
+  .skills-box h3,
+  .knowledge-box h3 {
+    font-size: 20px;
+  }
+
+  .percent {
+    font-size: 12px;
+  }
+
+  .knowledge-box .tags span {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* Extra small devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+  }
+
+  .resume-card {
+    padding: 15px;
+  }
+
+  .skills-box,
+  .knowledge-box {
+    padding: 0;
+  }
+
+  .knowledge-box .tags span {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+    </style>
+
+</head>
+
+<body>
+    <div class="glass-wrapper">
+        <div class="container">
+            <!-- Left Profile Card -->
+            <div class="left-profile">
+                <img src="./images/image.jpg" alt="Profile" class="profile-pic" />
+                <h2>Shubham Powar</h2>
+                <p class="role">Web Developer</p>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+                <div class="info-card">
+                    <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> Example@Mail.Com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kolhapur</p>
+                    <p><i class="fas fa-birthday-cake"></i> june 14, 2001</p>
+                </div>
+
+                <button class="download-btn">Download CV</button>
+            </div>
+
+            <!-- Right Main Content -->
+            <div class="main-content">
+                <section class="resume-section">
+                    <h2 class="section-title">Resume <span></span></h2>
+
+                    <div class="resume-columns">
+                        <!-- Education -->
+                        <div class="resume-block">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+
+                            <div class="resume-card blue">
+                                <p class="duration">2021 – 2023</p>
+                                <h4>XYZ – University,</h4>
+                                <p>XYZ</p>
+                            </div>
+
+                            <div class="resume-card gray">
+                                <p class="duration">2017 – 2021</p>
+                                <h4>Computer Science</h4>
+                                <p>Technical Institute</p>
+                            </div>
+
+                            <div class="resume-card pink">
+                                <p class="duration">2015 – 2017</p>
+                                <h4>Graphic Designer – Web Graphy.,</h4>
+                                <p>XYZ</p>
+                            </div>
+                        </div>
+
+                        <!-- Experience -->
+                        <div class="resume-block">
+                            <h3><i class="fas fa-briefcase"></i> Experience</h3>
+
+                            <div class="resume-card gray">
+                                <p class="duration">2019 – Present</p>
+                                <h4>Sr. Software Tester</h4>
+                                <p>Google Inc.</p>
+                            </div>
+
+                            <div class="resume-card pink">
+                                <p class="duration">2015 – 2017</p>
+                                <h4>Cr. Web Developer</h4>
+                                <p>Google inc.</p>
+                            </div>
+
+                            <div class="resume-card blue">
+                                <p class="duration">2014 – 2015</p>
+                                <h4>Jr. Web Developer</h4>
+                                <p>Creative Gigs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="skills-knowledge-section">
+                    <div class="skills-knowledge-container">
+                        <!-- Working Skills -->
+                        <div class="skills-box">
+                            <h3>Working Skills</h3>
+
+                            <div class="skill">
+                                <span>Web Design</span>
+                                <div class="bar">
+                                    <div class="fill red" style="width: 95%;"></div>
+                                </div>
+                                <span class="percent">95%</span>
+                            </div>
+
+                            <div class="skill">
+                                <span>Mobile App</span>
+                                <div class="bar">
+                                    <div class="fill pink" style="width: 70%;"></div>
+                                </div>
+                                <span class="percent">70%</span>
+                            </div>
+
+                            <div class="skill">
+                                <span>Illustrator</span>
+                                <div class="bar">
+                                    <div class="fill blue" style="width: 50%;"></div>
+                                </div>
+                                <span class="percent">50%</span>
+                            </div>
+
+                            <div class="skill">
+                                <span>Photoshop</span>
+                                <div class="bar">
+                                    <div class="fill purple" style="width: 80%;"></div>
+                                </div>
+                                <span class="percent">80%</span>
+                            </div>
+                        </div>
+
+                        <!-- Knowledges -->
+                        <div class="knowledge-box">
+                            <h3>Knowledges</h3>
+                            <div class="tags">
+                                <span>Digital Design</span>
+                                <span>Marketing</span>
+                                <span>Communication</span>
+                                <span>Social Media</span>
+                                <span>Time Management</span>
+                                <span>Flexibility</span>
+                                <span>Full Stack Development</span>
+                                <span>Problem Solving</span>
+                                <span>Teamwork</span>
+                                <span>Leadership</span>
+                                <span>Creativity</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Side Menu -->
+            <div class="side-menu">
+                <a href="index.html">About</a>
+                <a href="Resume.html">Resume</a>
+                <a href="Blog.html">Blogs</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
